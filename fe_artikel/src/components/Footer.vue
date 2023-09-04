@@ -37,18 +37,8 @@ const navLinks = ref([
   },
   {
     id: "news",
-    title: "News",
-    links: "/news",
-  },
-  {
-    id: "about",
-    title: "About",
-    links: "/about",
-  },
-  {
-    id: "contacts",
-    title: "Contacts",
-    links: "/contacts",
+    title: "InsertArticle",
+    links: "/insert",
   },
 ]);
 

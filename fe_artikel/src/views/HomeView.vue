@@ -11,6 +11,34 @@ import Popular3 from "../assets/Icons/Popular3.png";
 import GambarListArtikel from "../assets/Icons/GambarListArtikel.png";
 import LogoKalendar from "../assets/Icons/LogoKalendar.svg";
 import IconUser from "../assets/Icons/IconUser.svg";
+import { ref, onMounted } from "vue";
+import axios from "axios";
+import {useRouter} from "vue-router"
+
+const router = useRouter();
+
+// const handleChange = () => {
+//   router.push({query:{make: make.value}})
+// }
+
+const dataArticle = ref([]);
+
+// Fungsi untuk mengambil data artikel
+const fetchData = async () => {
+  try {
+    const response = await axios.get('http://localhost/project_lod/be_artikel/api/artikel');
+    dataArticle.value = response.data.data; // Pastikan struktur data sesuai
+  } catch (error) {
+    console.error("Terjadi kesalahan:", error);
+  }
+};
+
+// Panggil fungsi fetchData saat komponen di-mount
+onMounted(() => {
+  fetchData();
+});
+
+
 </script>
 
 <template>
@@ -30,8 +58,9 @@ import IconUser from "../assets/Icons/IconUser.svg";
             become a part of our professional and creative team!
           </p>
         </div>
+        <a href="/insert">
         <button
-          class="w-[230px] h-[60px] flex p-[10px] pr-[10px] pl-[20px] items-center gap-[15px] border-l-4 border-[#333] bg-[#FDD9D3] rounded-lg"
+          class="w-[230px] h-[60px] flex p-[10px] pr-[10px] pl-[20px] items-center gap-[15px] border-l-4 border-[#333] bg-[#FDD9D3] rounded-lg"  
         >
           <div
             class="flex w-[30px] h-[20px] p-[6.396px 0.05px 6.397px 0.051px] justify-center items-center"
@@ -44,10 +73,11 @@ import IconUser from "../assets/Icons/IconUser.svg";
           </div>
           <div class="w-auto h-auto">
             <p class="text-center font-serif text-base font-bold tracking-wide">
-              Submit Article
+              Insert Article
             </p>
           </div>
         </button>
+        </a>
       </div>
       <div class="w-[195px] h-[460px] flex-shrink-0 mt-[58px]">
         <img :src="Gambar1" alt="#1" />
@@ -156,36 +186,21 @@ import IconUser from "../assets/Icons/IconUser.svg";
   <section
     class="flex flex-col w-full px-[60px] items-start gap-[30px] text-[#333333]"
   >
-    <ul class="flex w-4/5 justify-between items-start">
+    <ul class="flex w-4/5 justify-between items-start ml-[500px]">
       <li>
-        <a href="" class="font-serif text-base font-normal leading-6"
-          >All Categories</a
+        <a href="" class="font-serif leading-6 font-bold text-3xl"
+          >All Artikel</a
         >
-      </li>
-      <li class="font-serif text-base font-normal leading-6 underline">News</li>
-      <li class="font-serif text-base font-normal leading-6 underline">
-        Personal Advices
-      </li>
-      <li class="font-serif text-base font-normal leading-6 underline">
-        Travel
-      </li>
-      <li class="font-serif text-base font-normal leading-6 underline">
-        Self-Development
-      </li>
-      <li class="font-serif text-base font-normal leading-6 underline">
-        Funny Situations
-      </li>
-      <li class="font-serif text-base font-normal leading-6 underline">
-        Natural
       </li>
     </ul>
     <div class="flex items-start gap-[30px]">
       <div
         class="flex flex-col w-[645px] h-[618px] p-[30px] justify-between items-start rounded-md bg-backGroundFeatured"
       ></div>
-      <ul class="flex flex-col items-start gap-[30px]">
+      <ul class="flex flex-col items-start gap-[30px] max-h-[630px] overflow-auto">
         <li
-          class="flex w-[550px] h-[186px] justify-center items-start gap-[30px]"
+          class="flex w-[550px] h-[186px] justify-center items-start gap-[30px] cursor-pointer"
+          v-for="article in dataArticle" :key="article.id" @click="router.push(`/article/${article.id}`)"
         >
           <img
             :src="GambarListArtikel"
@@ -202,7 +217,7 @@ import IconUser from "../assets/Icons/IconUser.svg";
                     class="flex w-[20px] h-[20px] p-[1.042px 1.875px] justify-center items-center"
                   />
                   <p class="font-serif text-xs font-normal text-[#656565]">
-                    Apr 8, 2023
+                    {{ article.tanggal_publikasi }}
                   </p>
                 </div>
                 <div class="flex items-center gap-[15px]">
@@ -211,91 +226,13 @@ import IconUser from "../assets/Icons/IconUser.svg";
                     alt=""
                     class="flex w-[20px] h-[20px] p-[1.042px 1.875px] justify-center items-center"
                   />
-                  <p class="font-serif text-xs font-normal leading-4 text-[#656565]">Raihan Novirma</p>
+                  <p class="font-serif text-xs font-normal leading-4 text-[#656565]">{{ article.penulis }}</p>
                 </div>
                 <div class="w-[275px]">
-                  <p class="font-serif text-lg font-semibold">Pink stairs leading to the sky</p>
+                  <p class="font-serif text-lg font-semibold">{{ article.judul }}</p>
                 </div>
                 <div class="self-stretch">
-                  <p class="font-serif text-[9px] font-light leading-6">In my opinion, Ui/Ux design is the foundation of a product, its face and soul. You can create an infinitely high-quality heart, and organize the simulation of breathing, but we won’t fall in love with a product just because its heart beats [...]</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li
-          class="flex w-[550px] h-[186px] justify-center items-start gap-[30px]"
-        >
-          <img
-            :src="GambarListArtikel"
-            alt=""
-            class="w-[195px] h-[186px] flex-shrink-0 rounded"
-          />
-          <div class="flex flex-col items-start gap-[30px]">
-            <div class="flex flex-col items-start gap-[5px]">
-              <div class="flex flex-col items-star gap-[10px] w-[300px]">
-                <div class="flex items-center gap-[15px]">
-                  <img
-                    :src="LogoKalendar"
-                    alt=""
-                    class="flex w-[20px] h-[20px] p-[1.042px 1.875px] justify-center items-center"
-                  />
-                  <p class="font-serif text-xs font-normal text-[#656565]">
-                    Apr 8, 2023
-                  </p>
-                </div>
-                <div class="flex items-center gap-[15px]">
-                  <img
-                    :src="IconUser"
-                    alt=""
-                    class="flex w-[20px] h-[20px] p-[1.042px 1.875px] justify-center items-center"
-                  />
-                  <p class="font-serif text-xs font-normal leading-4 text-[#656565]">Raihan Novirma</p>
-                </div>
-                <div class="w-[275px]">
-                  <p class="font-serif text-lg font-semibold">Pink stairs leading to the sky</p>
-                </div>
-                <div class="self-stretch">
-                  <p class="font-serif text-[9px] font-light leading-6">In my opinion, Ui/Ux design is the foundation of a product, its face and soul. You can create an infinitely high-quality heart, and organize the simulation of breathing, but we won’t fall in love with a product just because its heart beats [...]</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li
-          class="flex w-[550px] h-[186px] justify-center items-start gap-[30px]"
-        >
-          <img
-            :src="GambarListArtikel"
-            alt=""
-            class="w-[195px] h-[186px] flex-shrink-0 rounded"
-          />
-          <div class="flex flex-col items-start gap-[30px]">
-            <div class="flex flex-col items-start gap-[5px]">
-              <div class="flex flex-col items-star gap-[10px] w-[300px]">
-                <div class="flex items-center gap-[15px]">
-                  <img
-                    :src="LogoKalendar"
-                    alt=""
-                    class="flex w-[20px] h-[20px] p-[1.042px 1.875px] justify-center items-center"
-                  />
-                  <p class="font-serif text-xs font-normal text-[#656565]">
-                    Apr 8, 2023
-                  </p>
-                </div>
-                <div class="flex items-center gap-[15px]">
-                  <img
-                    :src="IconUser"
-                    alt=""
-                    class="flex w-[20px] h-[20px] p-[1.042px 1.875px] justify-center items-center"
-                  />
-                  <p class="font-serif text-xs font-normal leading-4 text-[#656565]">Raihan Novirma</p>
-                </div>
-                <div class="w-[275px]">
-                  <p class="font-serif text-lg font-semibold">Pink stairs leading to the sky</p>
-                </div>
-                <div class="self-stretch">
-                  <p class="font-serif text-[9px] font-light leading-6">In my opinion, Ui/Ux design is the foundation of a product, its face and soul. You can create an infinitely high-quality heart, and organize the simulation of breathing, but we won’t fall in love with a product just because its heart beats [...]</p>
+                  <p class="font-serif text-[9px] font-light leading-6 line-clamp-3" v-html="article.konten"></p>
                 </div>
               </div>
             </div>
