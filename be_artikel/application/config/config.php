@@ -25,6 +25,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = 'http://localhost/project_lod/be_artikel/';
 
+
+$config['allow_origins'] = array('*'); // Izinkan semua origin, sesuaikan sesuai kebutuhan
+$config['rest_enable_keys'] = TRUE;
+$config['allowed_methods'] = ['get', 'post', 'put', 'delete'];
+$config['allow_headers'] = array("Origin", "Accept", "Content-Type", "Authorization", "Access-Control-Allow-Origin");
 /*
 |--------------------------------------------------------------------------
 | Index File

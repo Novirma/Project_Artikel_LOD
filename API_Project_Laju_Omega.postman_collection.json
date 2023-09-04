@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "42c9d0c3-45df-4383-ac88-adca5668773d",
+		"name": "API_Project_Laju_Omega",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27161165",
+		"_collection_link": "https://www.postman.com/bimbel-ind/workspace/helloworld/collection/27161165-42c9d0c3-45df-4383-ac88-adca5668773d?action=share&source=collection_link&creator=27161165"
+	},
+	"item": [
+		{
+			"name": "project-artikel-lod",
+			"item": [
+				{
+					"name": "get_artikel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/project_lod/be_artikel/api/artikel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"project_lod",
+								"be_artikel",
+								"api",
+								"artikel"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit_artikel",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "judul",
+									"value": "Gajah Updated",
+									"type": "text"
+								},
+								{
+									"key": "konten",
+									"value": "Gajah adalah mamalia besar dari famili Elephantidae dan ordo Proboscidea. Secara tradisional, terdapat dua spesies yang diakui, yaitu gajah afrika (Loxodonta africana) dan gajah asia (Elephas maximus), walaupun beberapa bukti menunjukkan bahwa gajah semak afrika dan gajah hutan afrika adalah spesies yang berbeda (L. africana dan L. cyclotis). Gajah tersebar di seluruh Afrika sub-Sahara, Asia Selatan, dan Asia Tenggara. Elephantidae adalah satu-satunya famili dari ordo Proboscidea yang masih ada; famili lain yang kini sudah punah termasuk mamut dan mastodon. Gajah afrika jantan merupakan hewan darat terbesar dengan tinggi hingga 4 m dan massa yang juga dapat mencapai 7.000 kg. Gajah memiliki ciri-ciri khusus, dan yang paling mencolok adalah belalai atau proboscis yang digunakan untuk banyak hal, terutama untuk bernapas, menghisap air, dan mengambil benda. Gigi serinya tumbuh menjadi taring yang dapat digunakan sebagai senjata dan alat untuk memindahkan benda atau menggali. Daun telinganya yang besar membantu mengatur suhu tubuh mereka. Gajah afrika memiliki telinga yang lebih besar dan punggung yang cekung, sementara telinga gajah asia lebih kecil dan punggungnya cembung.\n\nGajah merupakan hewan herbivora yang dapat ditemui di berbagai habitat, seperti sabana, hutan, gurun, dan rawa-rawa. Mereka cenderung berada di dekat air. Gajah dianggap sebagai spesies kunci karena dampaknya terhadap lingkungan. Hewan-hewan lain cenderung menjaga jarak dari gajah, dan predator-predator seperti singa, harimau. hyena, dan anjing liar biasanya hanya menyerang gajah muda. Gajah betina cenderung hidup dalam kelompok keluarga, yang terdiri dari satu betina dengan anak-anaknya atau beberapa betina yang berkerabat beserta anak-anak mereka. Kelompok ini dipimpin oleh individu gajah yang disebut matriark, yang biasanya merupakan betina tertua. Gajah memiliki struktur kelompok fisi-fusi, yaitu ketika kelompok-kelompok keluarga bertemu untuk bersosialisasi. Gajah jantan meninggalkan kelompok keluarganya ketika telah mencapai masa pubertas, dan akan tinggal sendiri atau bersama jantan lainnya. Jantan dewasa biasanya berinteraksi dengan kelompok keluarga ketika sedang mencari pasangan dan memasuki tahap peningkatan testosteron dan agresi yang disebut musth, yang membantu mereka mencapai dominasi dan keberhasilan reproduktif. Anak gajah merupakan pusat perhatian kelompok keluarga dan bergantung pada induknya selama kurang lebih tiga tahun. Gajah dapat hidup selama 70 tahun di alam bebas. Mereka berkomunikasi melalui sentuhan, penglihatan, penciuman, dan suara; gajah juga menggunakan infrasonik dan komunikasi seismik untuk jarak jauh. Kecerdasan gajah telah dibandingkan dengan kecerdasan primata dan cetacea. Mereka tampaknya memiliki kesadaran diri dan menunjukkan empati kepada gajah lain yang hampir atau sudah mati.\n\nGajah afrika digolongkan sebagai spesies yang rentan oleh International Union for Conservation of Nature (IUCN), sementara gajah asia diklasifikasikan sebagai spesies terancam. Salah satu ancaman terbesar bagi gajah adalah perdagangan gading yang memicu perburuan liar. Ancaman lain adalah kehancuran habitat dan konflik dengan penduduk setempat. Di sisi lain, gajah digunakan sebagai hewan pekerja di Asia. Dulu mereka pernah digunakan untuk perang; kini, gajah sering kali dipertontonkan di kebun binatang dan sirkus. Gajah dapat dengan mudah dikenali dan telah digambarkan dalam seni, cerita rakyat, agama, sastra, dan budaya populer.\n\nUPDATED",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_publikasi",
+									"value": "2023-08-31",
+									"type": "text"
+								},
+								{
+									"key": "kategori",
+									"value": "Fauna Updated",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/project_lod/be_artikel/api/artikel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"project_lod",
+								"be_artikel",
+								"api",
+								"artikel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_artikel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "judul",
+									"value": "Paus Biru",
+									"type": "text"
+								},
+								{
+									"key": "penulis",
+									"value": "Wikipedia",
+									"type": "text"
+								},
+								{
+									"key": "konten",
+									"value": "Paus biru (Balaenoptera musculus) adalah mamalia laut yang tergolong dalam subordo paus balin.[9] Panjangnya mencapai lebih dari 33 meter dan massanya tercatat sebesar 181 ton atau lebih. Binatang ini diyakini merupakan hewan terbesar yang pernah diketahui.[10][11][12]\n\nPaus yang panjang dan ramping ini memiliki bagian belakang (dorsal) yang berwarna abu-abu kebiruan dan bagian depan (ventral) yang lebih terang.[13] Terdapat paling tidak tiga subspesies paus biru: B. m. musculus di Atlantik Utara dan Pasifik Utara, B. m. intermedia di Samudra Selatan, dan B. m. brevicauda (juga disebut paus biru kerdil) di Samudra Hindia dan Samudra Pasifik Selatan. B. m. indica yang hidup di Samudra Hindia mungkin merupakan subspesies lain. Seperti paus balin lainnya, makanan pokok paus biru adalah crustacea kecil yang disebut krill.[14]\n\nPaus biru sangat berlimpah di hampir seluruh samudra hingga awal abad ke-20. Selama lebih dari satu abad, paus ini diburu sampai hampir punah sebelum akhirnya dilindungi oleh komunitas internasional pada tahun 1966. Menurut sebuah laporan pada tahun 2002, terdapat sekitar 5.000 hingga 12.000 paus biru di seluruh dunia[15] yang terbagi dalam sedikitnya lima kelompok. Penelitian terkini subspesies paus biru kerdil menunjukkan bahwa perkiraan ini mungkin terlalu rendah.[16] Sebelum berlangsungnya perburuan paus, populasi terbesar berada di Antartika, yang jumlahnya kurang lebih sebesar 239.000 (antara 202.000 hingga 311.000).[17] Saat ini konsentrasi kelompok di Samudra Pasifik Utara bagian timur, Antartika, dan Samudra Hindia jauh lebih rendah daripada angka sebelumnya (kurang lebih 2.000). Terdapat pula dua kelompok lain di Samudra Atlantik Utara, dan paling tidak dua kelompok lagi di Belahan Selatan.",
+									"type": "text"
+								},
+								{
+									"key": "tanggal_publikasi",
+									"value": "2023-09-01",
+									"type": "text"
+								},
+								{
+									"key": "kategori",
+									"value": "Fauna",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/project_lod/be_artikel/api/artikel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"project_lod",
+								"be_artikel",
+								"api",
+								"artikel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_artikel",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/project_lod/be_artikel/api/artikel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"project_lod",
+								"be_artikel",
+								"api",
+								"artikel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_artikel",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -9,10 +9,19 @@ import Quill from 'quill'
 import 'quill/dist/quill.snow.css' // Impor gaya Quill
 
 export default {
+    props : {
+        initialValue : String,
+        content : String,
+        editorContent :String,
+    },
     mounted() {
         const quill = new Quill(this.$refs.quillEditor, {
             theme: 'snow',
         })
+
+        if(this.initialValue) {
+            quill.root.innerHTML = this.initialValue
+        }
 
         quill.on('text-change', () => {
             const editorContent = quill.root.innerHTML

@@ -88,6 +88,7 @@ const data= {
         id: ""
       }
 let editorContent = ref([]);
+let test = "hehehe"
 
 const route = useRoute();
 const userId = route.params.id;
@@ -104,6 +105,7 @@ const fetchData = async () => {
     data.konten = dataArticle.value[0].konten
     data.tanggal_publikasi = dataArticle.value[0].tanggal_publikasi
     data.id = userId
+    test = data.konten
     console.log(data);
     
   } catch (error) {
@@ -135,8 +137,9 @@ const EditArtikel = async () => {
           console.error("Terjadi kesalahan:", error);
         }
       };
-
-      fetchData()
+data.konten = editorContent
+console.log(data.konten);
+    //   fetchData()
 }
 
 const updateEditorContent = (content) => {
@@ -206,7 +209,7 @@ onMounted(() => {
     </div>
     <div class="w-[50%] mt-[-30px]">
       <p class="ml-3 font-semibold mb-[5px]">Konten</p>
-      <QuillEditor v-model="data.konten" @update:editorContent="updateEditorContent" />
+      <QuillEditor  :initial-value="test" @update:editorContent="updateEditorContent"  />
     </div>
     <button class="rounded-full bg-sky-400 w-[200px] h-[50px]">
       <p class="font-bold font-serif text-[#333333]" @click="EditArtikel">
