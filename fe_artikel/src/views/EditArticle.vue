@@ -88,7 +88,7 @@ const data= {
         id: ""
       }
 let editorContent = ref([]);
-let test = "hehehe"
+let test = ""
 
 const route = useRoute();
 const userId = route.params.id;
