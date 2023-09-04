@@ -9,6 +9,9 @@ export default {
       backgroundColor: {
         'main-primary-two': 'var(--main-primary-two, #FBF3EB)',
       },
+      backgroundImage: {
+        'backGroundFeatured' : "url('./src/assets/Icons/BgFeatured.png')"
+      }
     },
   },
   plugins: [],
