@@ -11,11 +11,17 @@ class Artikel extends REST_Controller
     public function __construct()
     {
         parent::__construct();
+        // $this->load->library('cors');
+        // $this->cors->handle();
+        header('Access-Control-Allow-Origin: *'); // Change * to your allowed origin if needed and Method Allow FE to Get This API
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
         $this->load->model('Artikel_model', 'artikel');
     }
 
     public function index_get()
     {
+        
         $id = $this->get('id');
         if ($id === null) {
             $artikel = $this->artikel->getArtikel();
